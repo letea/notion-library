@@ -1,7 +1,7 @@
-import { Page } from "../../index.js";
+import { Page } from "#letea/notion";
 
 // local files
-import { config } from "../config.js";
+import { config } from "#examples/config";
 const { auth, blockId } = config;
 
 const page = new Page({

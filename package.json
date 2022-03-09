@@ -25,5 +25,9 @@
     "jest": "^27.5.1"
   },
   "prettier": "@letea/prettier-config",
-  "type": "module"
+  "type": "module",
+  "imports": {
+    "#letea/notion": "./index.js",
+    "#examples/*": "./examples/*.js"
+  }
 }

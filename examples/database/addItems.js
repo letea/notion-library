@@ -1,7 +1,7 @@
-import { Database } from "../../index.js";
+import { Database } from "#letea/notion";
 
 // local files
-import { config } from "../config.js";
+import { config } from "#examples/config";
 const { auth, databaseId } = config;
 
 const database = new Database({

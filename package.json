@@ -1,0 +1,29 @@
+{
+  "name": "@letea/notion",
+  "version": "0.0.2",
+  "description": "A javascript library for Notion SDK",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint index.js ./libs/** -c .eslintrc",
+    "test": "jest"
+  },
+  "keywords": [
+    "notion",
+    "javascript"
+  ],
+  "author": "LeTea",
+  "license": "ISC",
+  "dependencies": {
+    "@notionhq/client": "^0.4.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/eslint-parser": "^7.15.8",
+    "@babel/preset-env": "^7.16.11",
+    "@letea/prettier-config": "0.0.7",
+    "eslint": "^8.0.1",
+    "jest": "^27.5.1"
+  },
+  "prettier": "@letea/prettier-config",
+  "type": "module"
+}

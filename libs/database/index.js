@@ -55,7 +55,7 @@ class Database {
     }
   }
 
-  async queryItems({ filter, sorts = [] } = {}) {
+  async queryItems({ filter, sorts = [], hasPageUrl = false } = {}) {
     const response = await this?.notion?.databases.query({
       database_id: this.databaseId,
       filter,
@@ -64,6 +64,10 @@ class Database {
 
     return response.results.map((result) => {
       let data = {};
+
+      if (hasPageUrl) {
+        data.pageUrl = result.url;
+      }
 
       Object.keys(result.properties).forEach((key) => {
         data[key] = this._getValue(result.properties[key]);

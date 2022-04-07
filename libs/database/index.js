@@ -132,7 +132,11 @@ class Database {
         return data?.phone_number || null;
       }
       default: {
-        return data?.[data.type]?.[0]?.text?.content || "";
+        return data?.[data.type].reduce((accumulator, item) => {
+          const content = item?.text?.content || "";
+          accumulator += content;
+          return accumulator;
+        }, "");
       }
     }
   }

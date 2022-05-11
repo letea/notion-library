@@ -16,6 +16,7 @@ const response = await database.queryItems({
       direction: "ascending"
     }
   ],
+  pageSize: 100,
   hasPageUrl: true
 });
 

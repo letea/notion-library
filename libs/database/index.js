@@ -55,14 +55,22 @@ class Database {
     }
   }
 
-  async queryItems({ filter, sorts = [], hasPageUrl = false } = {}) {
+  async queryItems({
+    filter,
+    sorts = [],
+    hasPageUrl = false,
+    pageSize = 100,
+    startCursor
+  } = {}) {
     const response = await this?.notion?.databases.query({
       database_id: this.databaseId,
       filter,
-      sorts
+      sorts,
+      start_cursor: startCursor,
+      page_size: pageSize > 100 ? 100 : pageSize
     });
 
-    return response.results.map((result) => {
+    let result = response.results.map((result) => {
       let data = {};
 
       if (hasPageUrl) {
@@ -75,6 +83,23 @@ class Database {
 
       return data;
     });
+
+    if (
+      result.length < pageSize &&
+      response?.has_more &&
+      response?.next_cursor
+    ) {
+      const nextResult = await this.queryItems({
+        filter,
+        sorts,
+        hasPageUrl,
+        startCursor: response?.next_cursor,
+        pageSize: pageSize - result.length
+      });
+      return [...result, ...nextResult].slice(0, pageSize);
+    } else {
+      return result;
+    }
   }
 
   _getValue(data = {}) {

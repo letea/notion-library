@@ -1,6 +1,6 @@
 {
   "name": "@letea/notion",
-  "version": "0.1.0",
+  "version": "2.2.0",
   "description": "A javascript library for Notion SDK",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   "author": "LeTea",
   "license": "ISC",
   "dependencies": {
-    "@notionhq/client": "^0.4.3"
+    "@notionhq/client": "^2.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",

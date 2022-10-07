@@ -1,5 +1,5 @@
 // node modules
-import { Client } from "@notionhq/client";
+const { Client } = require("@notionhq/client");
 
 class Database {
   constructor({ auth = "", databaseId = "" } = {}) {
@@ -221,13 +221,13 @@ class Database {
           type,
           date: Array.isArray(value)
             ? {
-                start: value?.[0],
-                end: value?.[1] || null
-              }
+              start: value?.[0],
+              end: value?.[1] || null
+            }
             : {
-                start: value,
-                end: null
-              }
+              start: value,
+              end: null
+            }
         };
       }
       case "checkbox": {
@@ -258,4 +258,4 @@ class Database {
   }
 }
 
-export { Database };
+module.exports = { Database };

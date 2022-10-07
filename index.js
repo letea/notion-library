@@ -1,4 +1,4 @@
-import { Database } from "./libs/database/index.js";
-import { Page } from "./libs/page/index.js";
+const { Database } = require("./libs/database/index.js");
+const { Page } = require("./libs/page/index.js");
 
-export { Database, Page };
+module.exports = { Database, Page };

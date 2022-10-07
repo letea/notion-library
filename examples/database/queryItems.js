@@ -1,23 +1,25 @@
-import { Database } from "#letea/notion";
+const { Database } = require("#letea/notion");
 
 // local files
-import { config } from "#examples/config";
+const { config } = require("#examples/config");
 const { auth, databaseId } = config;
 
-const database = new Database({
-  auth,
-  databaseId
-});
+(async () => {
+  const database = new Database({
+    auth,
+    databaseId
+  });
 
-const response = await database.queryItems({
-  sorts: [
-    {
-      property: "Name",
-      direction: "ascending"
-    }
-  ],
-  pageSize: 100,
-  hasPageUrl: true
-});
+  const response = await database.queryItems({
+    sorts: [
+      {
+        property: "Name",
+        direction: "ascending"
+      }
+    ],
+    pageSize: 100,
+    hasPageUrl: true
+  });
 
-console.log(response);
+  console.log(response);
+})()

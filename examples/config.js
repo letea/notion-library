@@ -4,4 +4,4 @@ const config = {
   blockId: "7f7fa8f523554415b7bc4feb36515718"
 };
 
-export { config };
+module.exports = { config };

@@ -1,14 +1,16 @@
-import { Page } from "#letea/notion";
+const { Page } = require("#letea/notion");
 
 // local files
-import { config } from "#examples/config";
+const { config } = require("#examples/config");
 const { auth, blockId } = config;
 
-const page = new Page({
-  auth,
-  blockId
-});
+(async () => {
+  const page = new Page({
+    auth,
+    blockId
+  });
 
-const response = await page.getTitle();
+  const response = await page.getTitle();
 
-console.log(response);
+  console.log(response);
+})()

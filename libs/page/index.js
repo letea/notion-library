@@ -1,5 +1,5 @@
 // node modules
-import { Client } from "@notionhq/client";
+const { Client } = require("@notionhq/client");
 
 class Page {
   constructor({ auth = "", blockId = "" } = {}) {
@@ -71,6 +71,7 @@ class Page {
   }
 
   _getValue(data = {}, index, array) {
+    index === 0 && console.log(data);
     switch (data.type) {
       case "image": {
         return data?.[data?.type]?.file?.url || "";
@@ -85,7 +86,7 @@ class Page {
         return `${itemIndex}. ${allText}`;
       }
       default: {
-        return this._getAllText(data?.[data.type]?.text) || "";
+        return this._getAllText(data?.[data.type]?.rich_text) || "";
       }
     }
   }
@@ -109,4 +110,4 @@ class Page {
   }
 }
 
-export { Page };
+module.exports = { Page };

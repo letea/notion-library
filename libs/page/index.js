@@ -85,8 +85,18 @@ class Page {
 
         return `${itemIndex}. ${allText}`;
       }
+      case "child_database": {
+        return {
+          text: data?.[data.type]?.title,
+          id: data?.id
+        };
+      }
       default: {
-        return this._getAllText(data?.[data.type]?.rich_text) || "";
+        return (
+          this._getAllText(data?.[data.type]?.rich_text) ||
+          data?.[data.type]?.title ||
+          ""
+        );
       }
     }
   }

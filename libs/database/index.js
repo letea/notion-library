@@ -156,6 +156,9 @@ class Database {
       case "phone_number": {
         return data?.phone_number || null;
       }
+      case "formula": {
+        return data?.[data.type]?.string || null;
+      }
       default: {
         return data?.[data.type].reduce((accumulator, item) => {
           const content = item?.text?.content || "";
@@ -221,13 +224,13 @@ class Database {
           type,
           date: Array.isArray(value)
             ? {
-              start: value?.[0],
-              end: value?.[1] || null
-            }
+                start: value?.[0],
+                end: value?.[1] || null
+              }
             : {
-              start: value,
-              end: null
-            }
+                start: value,
+                end: null
+              }
         };
       }
       case "checkbox": {

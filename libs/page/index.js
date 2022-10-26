@@ -71,7 +71,6 @@ class Page {
   }
 
   _getValue(data = {}, index, array) {
-    index === 0 && console.log(data);
     switch (data.type) {
       case "image": {
         return data?.[data?.type]?.file?.url || "";

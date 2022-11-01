@@ -102,6 +102,20 @@ class Database {
     }
   }
 
+  async retrieve() {
+    const response = await this?.notion?.databases?.retrieve({
+      database_id: this.databaseId
+    });
+
+    return {
+      id: response?.id,
+      createdTime: response?.created_time,
+      lastEditedTime: response?.last_edited_time,
+      title: response?.title?.[0]?.plain_text,
+      url: response?.url
+    };
+  }
+
   _getValue(data = {}) {
     switch (data.type) {
       case "image": {

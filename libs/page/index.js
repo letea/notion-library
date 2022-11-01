@@ -87,7 +87,8 @@ class Page {
       case "child_database": {
         return {
           text: data?.[data.type]?.title,
-          id: data?.id
+          id: data?.id,
+          lastEditedTime: data?.last_edited_time
         };
       }
       default: {

@@ -116,6 +116,21 @@ class Database {
     };
   }
 
+  async getInlineLastEditedTime() {
+    const response = await this?.notion?.databases.query({
+      database_id: this.databaseId,
+      sorts: [
+        {
+          timestamp: "last_edited_time",
+          direction: "descending"
+        }
+      ],
+      page_size: 1
+    });
+
+    return response.results[0].last_edited_time;
+  }
+
   _getValue(data = {}) {
     switch (data.type) {
       case "image": {

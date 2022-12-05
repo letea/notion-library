@@ -1,6 +1,6 @@
 {
   "name": "@letea/notion",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "description": "A javascript library for Notion SDK",
   "main": "index.js",
   "scripts": {

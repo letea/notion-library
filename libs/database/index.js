@@ -128,7 +128,7 @@ class Database {
       page_size: 1
     });
 
-    return response.results[0].last_edited_time;
+    return response?.results?.[0]?.last_edited_time;
   }
 
   _getValue(data = {}) {
